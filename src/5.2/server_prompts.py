@@ -1,5 +1,5 @@
 from fastmcp import FastMCP
-from fastmcp.prompts.prompt import Message, PromptMessage, TextContent
+from fastmcp.prompts.prompt import Message, PromptMessage
 import asyncio
 
 mcp = FastMCP(name="PromptServer")
@@ -15,7 +15,7 @@ def ask_about_topic(topic: str) -> str:
 def generate_code_request(language: str, task_description: str) -> PromptMessage:
     """Generates a user message requesting code generation."""
     content = f"{language}로 다음 작업을 수행하는 함수를 작성해 주세요.: {task_description}"
-    return PromptMessage(role="user", content=TextContent(type="text", text=content))
+    return [Message(content)]
 
 # 메시지 리스트를 반환하는 프롬프트
 @mcp.prompt

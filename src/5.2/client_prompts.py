@@ -29,14 +29,15 @@ async def main() -> None:
         show("ask_about_topic", r1)
 
         # generate_code_request - 특정 메시지 형식을 반환
-        # r2 = await client.get_prompt(
-        #     "generate_code_request",
-        #     {
-        #         "language": "Python",
-        #         "task_description": "반복문으로 피보나치 수열을 계산",
-        #     },
-        # )
-        # show("generate_code_request", r2)
+        r2 = await client.get_prompt(
+            "generate_code_request",
+            {
+                "language": "Python",
+                "task_description": "반복문으로 피보나치 수열을 계산",
+            },
+        )
+        
+        show("generate_code_request", r2)
 
         # roleplay_scenario - 메시지 리스트를 반환
         r3 = await client.get_prompt(
